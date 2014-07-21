@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from distutils.core import setup
+from setuptools import setup
 import os
 
 package_name = "ROPGadget"
@@ -41,8 +41,7 @@ for dirpath, dirnames, filenames in os.walk(package_dir):
     elif filenames:
         data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
 
-version = __import__(package_dir).version
-version = '.'.join(str(_) for _ in (version.MAJOR_VERSION, version.MINOR_VERSION))
+version = "5.2"
 
 setup(
     name            = package_name,
@@ -52,8 +51,9 @@ setup(
     license         = "GLPv2",
     author          = "Jon Salwan",
     author_email    = "jonathan.salwan@gmail.com",
-    url="https://github.com/JonathanSalwan/ROPgadget",
-    scripts=['scripts/ropgadget'],
+    install_requires= ['capstone'],
+    url             = "https://github.com/JonathanSalwan/ROPgadget",
+    scripts         = ['scripts/ropgadget'],
     classifiers = [
         'Topic :: Security',
         'Environment :: Console',
