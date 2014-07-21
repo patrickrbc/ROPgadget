@@ -13,4 +13,8 @@
 import args,binary,core,gadgets,options,rgutils,updateAlert,version
 import loaders,ropchain
 
-pass
+def main():
+    import sys
+    from   args import Args
+    from   core import Core
+    sys.exit(Core(Args().getArgs()).analyze())
